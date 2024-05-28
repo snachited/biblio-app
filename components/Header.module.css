@@ -1,0 +1,12 @@
+.header {
+    padding: 1rem;
+    background-color: #20B2AA; 
+}
+
+
+.title {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    color: #fff;
+}
