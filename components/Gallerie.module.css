@@ -1,0 +1,15 @@
+.gallerie {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center; /* Centre les éléments horizontalement */
+    align-items: center; /* Centre les éléments verticalement */
+    text-align: center; /* Centre le contenu textuel */
+}
+
+.gallerie img {
+    width: auto;
+    height: 15rem;
+    border: 1px solid #000;
+    border-radius: 1rem;
+}
