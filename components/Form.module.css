@@ -1,0 +1,63 @@
+.form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    max-width: 500px;
+    margin: 50px auto; /* Centrer le formulaire horizontalement et ajouter un espace en haut */
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.form label {
+    width: 100%;
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    font-weight: bold;
+}
+
+.form input, .form textarea {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.form textarea {
+    min-height: 150px; /* Ajuster la hauteur minimale du textarea */
+    resize: vertical; /* Permettre à l'utilisateur de redimensionner verticalement */
+}
+
+.form button {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #007BFF;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+.form button:hover {
+    background-color: #0056b3;
+}
+
+.erreur {
+    color: red;
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+.reponse {
+    margin-top: 10px;
+    font-size: 16px;
+    color: green;
+}

@@ -1,11 +1,16 @@
+import Link from 'next/link';
 import styles from './MenuNav.module.css';
-export default function MenuNav({setPage}) {
+// import { useRouter } from 'next/navigation';
+export default function MenuNav() {
+    // const routeur = useRouter();
     return <nav className={styles.nav}>
         <ul>
-            <li><a href="#" onClick={() => setPage('accueil')}>Accueil</a></li>
-            <li><a href="#" onClick={() => setPage('Ontario')}>Ontario</a></li>
-            <li><a href="#" onClick={() => setPage('Quebec')}>Quebec</a></li>
-           
+            <li><Link href="/">Accueil</Link></li>
+            <li><Link href="/Ontario">Ontario</Link></li>
+            <li><Link href="/Quebec">Quebec</Link></li>
+            <li><Link href="/Contact">Contact</Link></li>
+            <li><Link href="/Connexion">Connexion</Link></li>
         </ul>
+      
     </nav>
-}
+}  

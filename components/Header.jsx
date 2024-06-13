@@ -11,7 +11,7 @@ export default function Header({setPage}) {
                 alt="Logo React"
                 width={80}
             />
-            <h1>Biblio App</h1>
+            <h1>CanadaTours</h1>
         </div>
         
         <MenuNav setPage={setPage} />
