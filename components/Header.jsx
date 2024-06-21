@@ -1,10 +1,14 @@
+'use client'
 import styles from './Header.module.css';
 import Image from 'next/image';
 import logo from '@/public/logo1.webp';
 import MenuNav from './MenuNav';
-
-export default function Header({setPage}) {
-    return <header className={styles.header}>
+import { useTheme } from './ThemeProvider'; //Importer le hook personnalisé pour manipuler le thème
+export default function Header() {
+    const [theme, setTheme] = useTheme();
+    return <header className={styles.header +' '+
+    (theme === 'light'? styles.light : styles.dark)
+    }>
         <div className={styles.title}>
             <Image
                 src={logo}
@@ -13,7 +17,6 @@ export default function Header({setPage}) {
             />
             <h1>CanadaTours</h1>
         </div>
-        
-        <MenuNav setPage={setPage} />
+        <MenuNav/>
     </header>
 }

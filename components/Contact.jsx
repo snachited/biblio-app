@@ -1,11 +1,9 @@
-import React from 'react';
-import FormHook from "./FormHook";
-import styles from './connexion.module.css'; 
+import FormHook from '../components/FormHook';
 
 export default function Contact() {
     return (
-        <div className={styles.container}>
-            <h2>Contactez Notre support Maintenant !</h2>
+        <div>
+            <h1>Contactez Nous</h1>
             <FormHook />
         </div>
     );

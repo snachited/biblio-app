@@ -39,7 +39,7 @@ export default function FormNonControlle() {
                 <label>Username:
                     <input type="text" ref={nomRef} /> {/* Champ de texte avec une référence */}
                     {erreurNom &&
-                        <div className={styles.erreur}>{erreurUsername}</div>
+                        <div className={styles.erreur}>{erreurNom}</div>
                     }
                 </label>
             </div>
