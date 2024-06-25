@@ -1,27 +1,40 @@
-'use client'
-import { createContext, useContext, useEffect, useState } from 'react'
-// Crée un contexte pour stocker le thème.
+'use client';
+import { createContext, useContext, useEffect, useState } from 'react';
+
+// Create a context for the theme
 const ThemeContext = createContext();
-// Définit un composant React appelé ThemeProvider pour fournir le thème à ses enfants.
+
+// Define a React component called ThemeProvider to provide the theme to its children
 export function ThemeProvider({ children }) {
     const [theme, setTheme] = useState('light');
+
     useEffect(() => {
-        setTheme(localStorage.getItem('theme') || 'light');
-    }, [setTheme]);
-    // Rend le contexte ThemeContext disponible pour ses enfants avec la valeur [theme, setTheme].
-    return <ThemeContext.Provider value={[theme, setTheme]}>
-        {/* Rend les composants enfants du ThemeProvider. */}
-        {children}
-    </ThemeContext.Provider>
+        const savedTheme = localStorage.getItem('theme') || 'light';
+        setTheme(savedTheme);
+        document.body.className = savedTheme; // Apply theme to body
+    }, []);
+
+    useEffect(() => {
+        document.body.className = theme; // Update theme on body
+    }, [theme]);
+
+    return (
+        <ThemeContext.Provider value={[theme, setTheme]}>
+            {children}
+        </ThemeContext.Provider>
+    );
 }
-// Définit un hook personnalisé useTheme pour utiliser le thème actuel.
+
+// Define a custom hook useTheme to use the current theme
 export function useTheme() {
-    // Utilise le hook useContext pour accéder au thème actuel et à la fonction pour le modifier.
-    const [theme, setTheme] = useContext(ThemeContext);
-    const setThemeWithStorage = (theme) => {
-        localStorage.setItem('theme', theme);
-        setTheme(theme);
+    const context = useContext(ThemeContext);
+    if (!context) {
+        throw new Error('useTheme must be used within a ThemeProvider');
     }
-    // Retourne le thème actuel et la fonction pour le modifier. 
+    const [theme, setTheme] = context;
+    const setThemeWithStorage = (newTheme) => {
+        localStorage.setItem('theme', newTheme);
+        setTheme(newTheme);
+    };
     return [theme, setThemeWithStorage];
 }
